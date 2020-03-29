@@ -1,5 +1,27 @@
 Resources:
-  s3ArtifactDeployBucket:
-    Type: AWS::S3::Bucket
-    Properties: 
-      AccessControl: Private
+
+  LambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Description: capo optimizer core logic in a lambda
+      Handler: com.rileymathews.App::handleRequest
+      MemorySize: 128
+      Role: !GetAtt LambdaFunctionExecutionRole.Arn
+      Runtime: java11
+      Code:
+        S3Bucket: lambda-placeholder-code
+        S3Key: java.jar
+
+  LambdaFunctionExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument: 
+        Version: '2012-10-17'
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Path: /

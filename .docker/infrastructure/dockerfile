@@ -1,4 +1,4 @@
 FROM docker.pkg.github.com/rileymathews/docker-base-dev/docker-base-dev:5
 WORKDIR /code
 COPY .infrastructure/template.yaml ./infrastructure.yaml
-CMD [ "aws", "cloudformation", "update-stack", "--stack-name", "rhythm-ninja-capo-optimizer-lambda", "--template-body", "file:///code/infrastructure.yaml" ]
+CMD [ "aws", "cloudformation", "update-stack", "--stack-name", "rhythm-ninja-capo-optimizer-lambda", "--template-body", "file:///code/infrastructure.yaml", "--capabilities", "CAPABILITY_IAM" ]
