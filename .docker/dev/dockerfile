@@ -1,0 +1,2 @@
+FROM docker.pkg.github.com/rileymathews/docker-kotlin-jvm/kotlin-jvm:3
+WORKDIR /code
