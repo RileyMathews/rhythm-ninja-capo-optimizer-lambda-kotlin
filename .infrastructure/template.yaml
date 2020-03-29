@@ -26,3 +26,34 @@ Resources:
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
       Path: /
+
+  ApiGateway:
+    Type: AWS::ApiGatewayV2::Api
+    Properties:
+      Name: rhythm-ninja-capo-optimizer-lambda-kotlin-api
+      ProtocolType: HTTP
+      Target: !GetAtt LambdaFunction.Arn
+      CredentialsArn: !GetAtt ApiGatewayPermissionToExecuteLambda.Arn
+
+  ApiGatewayPermissionToExecuteLambda:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: LambdaAPIServiceRole
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Sid: ''
+          Effect: Allow
+          Principal:
+            Service: apigateway.amazonaws.com
+          Action: sts:AssumeRole
+      ManagedPolicyArns:
+      - arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs
+      Policies:
+      - PolicyName: AllowApiGatewayToTriggerLambda
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+          - Action: lambda:InvokeFunction
+            Resource: !GetAtt LambdaFunction.Arn
+            Effect: Allow

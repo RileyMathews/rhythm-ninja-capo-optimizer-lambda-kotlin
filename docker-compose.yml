@@ -22,3 +22,4 @@ services:
       dockerfile: ./.docker/infrastructure/dockerfile
     volumes:
       - "${HOME}/.aws:/root/.aws"
+      - ./.infrastructure/template.yaml:/code/infrastructure.yaml
