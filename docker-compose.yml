@@ -4,5 +4,7 @@ services:
     build:
       context: .
       dockerfile: ./.docker/dev/dockerfile
+    stdin_open: true
+    tty: true
     volumes: 
       - .:/code:delegated

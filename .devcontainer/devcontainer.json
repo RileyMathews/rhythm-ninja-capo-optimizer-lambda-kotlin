@@ -2,5 +2,5 @@
   "dockerComposeFile": "../docker-compose.yml",
   "service": "dev",
   "workspaceFolder": "/code",
-  "extensions": []
+  "extensions": ["fwcd.kotlin"]
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.rileymathews.AppTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-03-29T19:11:57" hostname="019291489fd2" time="0.065">
+  <properties/>
+  <testcase name="testAppHasAGreeting" classname="com.rileymathews.AppTest" time="0.065"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
