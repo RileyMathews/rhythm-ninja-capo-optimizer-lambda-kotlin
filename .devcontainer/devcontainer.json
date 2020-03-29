@@ -2,5 +2,8 @@
   "dockerComposeFile": "../docker-compose.yml",
   "service": "dev",
   "workspaceFolder": "/code",
-  "extensions": ["fwcd.kotlin"]
+  "extensions": [
+    "fwcd.kotlin",
+    "richardwillis.vscode-gradle"
+  ]
 }
