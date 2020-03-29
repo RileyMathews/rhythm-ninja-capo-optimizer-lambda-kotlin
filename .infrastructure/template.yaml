@@ -3,6 +3,7 @@ Resources:
   LambdaFunction:
     Type: AWS::Lambda::Function
     Properties:
+      FunctionName: rhythm-ninja-capo-optimizer-lambda-kotlin
       Description: capo optimizer core logic in a lambda
       Handler: com.rileymathews.App::handleRequest
       MemorySize: 128

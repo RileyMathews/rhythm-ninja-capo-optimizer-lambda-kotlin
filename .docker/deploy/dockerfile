@@ -1,0 +1,6 @@
+FROM docker.pkg.github.com/rileymathews/docker-kotlin-jvm/kotlin-jvm:3
+WORKDIR /code
+COPY . .
+RUN gradle shadowjar
+
+CMD [ "aws", "lambda", "update-function-code", "--function-name", "rhythm-ninja-capo-optimizer-lambda", "--zip-file", "fileb:///code/build/libs/code-all.jar" ]
