@@ -16,6 +16,7 @@ repositories {
 dependencies {
     implementation("com.amazonaws:aws-lambda-java-core:1.2.0")
     implementation("com.amazonaws:aws-lambda-java-events:2.2.7")
+    implementation("com.google.code.gson:gson:2.8.6")
 
     // Align versions of all Kotlin components
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
