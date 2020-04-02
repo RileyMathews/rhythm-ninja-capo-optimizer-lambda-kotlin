@@ -18,7 +18,7 @@ class App : RequestHandler<APIGatewayV2ProxyRequestEvent, APIGatewayV2ProxyRespo
         val response = APIGatewayV2ProxyResponseEvent()
         val gson = Gson()
         response.body = gson.toJson(transpositionOptions)
-        response.headers = mapOf("Access-Control-Allow-Origin" to "*")
+        response.headers = mapOf("Content-Type" to "application/json")
         response.statusCode = 200
         return response
     }

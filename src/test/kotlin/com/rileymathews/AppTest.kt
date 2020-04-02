@@ -9,13 +9,14 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class AppTest {
-    @Test fun testAppHasAGreeting() {
+    @Test fun testAppCanRunEndToEnd() {
         val app = App()
         val request = APIGatewayV2ProxyRequestEvent()
         request.queryStringParameters = mapOf("keys" to "Ab,Bb")
 
         val actual = app.handleRequest(request, MockContext())
 
+        assertEquals("application/json", actual.headers["Content-Type"])
         assertEquals(true, actual.body.contains("root\":\"G\""))
     }
 }
