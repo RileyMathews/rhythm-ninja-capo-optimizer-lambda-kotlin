@@ -3,7 +3,6 @@
   "service": "dev",
   "workspaceFolder": "/code",
   "extensions": [
-    "mathiasfrohlich.kotlin",
     "richardwillis.vscode-gradle"
   ]
 }
