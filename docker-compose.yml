@@ -9,3 +9,16 @@ services:
     volumes: 
       - .:/code:delegated
   
+  infrastructure:
+    build:
+      context: .
+      dockerfile: ./.docker/infrastructure/dockerfile
+    volumes:
+      - "${HOME}/.aws:/root/.aws"
+
+  deploy:
+    build:
+      context: .
+      dockerfile: ./.docker/deploy/dockerfile
+    volumes:
+      - "${HOME}/.aws:/root/.aws"

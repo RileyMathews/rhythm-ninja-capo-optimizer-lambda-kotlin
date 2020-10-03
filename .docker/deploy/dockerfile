@@ -1,4 +1,4 @@
-FROM docker.pkg.github.com/rileymathews/docker-kotlin-jvm/kotlin-jvm:3
+FROM rileymathews/kotlin:latest
 WORKDIR /code
 COPY . .
 RUN gradle shadowjar
